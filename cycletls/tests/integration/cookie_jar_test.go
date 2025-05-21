@@ -2,12 +2,13 @@ package cycletls_test
 
 import (
 	"encoding/json"
-	cycletls "github.com/Danny-Dasilva/CycleTLS/cycletls"
 	"net/http/cookiejar"
 	"net/url"
 	"reflect"
 	"strings"
 	"testing"
+
+	cycletls "github.com/Xayah36/CycleTLS/cycletls"
 )
 
 func TestCookieHandling(t *testing.T) {

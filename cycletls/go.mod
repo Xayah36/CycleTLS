@@ -1,4 +1,4 @@
-module github.com/Danny-Dasilva/CycleTLS/cycletls
+module github.com/Xayah36/CycleTLS/cycletls
 
 go 1.21
 

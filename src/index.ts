@@ -130,7 +130,7 @@ const handleSpawn = (debug: boolean, fileName: string, port: number, filePath?: 
         cleanExit(new Error(errorMessage));
       } else {
         cleanExit(
-          `Error Processing Request (please open an issue https://github.com/Danny-Dasilva/CycleTLS/issues/new/choose) -> ${errorMessage}`
+          `Error Processing Request (please open an issue https://github.com/Xayah36/CycleTLS/issues/new/choose) -> ${errorMessage}`
         )
         handleSpawn(debug, fileName, port);
       }

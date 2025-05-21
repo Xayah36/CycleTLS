@@ -7,7 +7,8 @@ import (
 	nhttp "net/http"
 	"os"
 	"runtime"
-	"github.com/Danny-Dasilva/CycleTLS/cycletls"
+
+	"github.com/Xayah36/CycleTLS/cycletls"
 )
 
 

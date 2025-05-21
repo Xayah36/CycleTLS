@@ -1,10 +1,11 @@
 package main
 
 import (
-	cycletls "github.com/Danny-Dasilva/CycleTLS/cycletls" // imports locally per go.mod
 	"log"
 	"runtime"
 	"time"
+
+	cycletls "github.com/Xayah36/CycleTLS/cycletls" // imports locally per go.mod
 )
 
 func main() {

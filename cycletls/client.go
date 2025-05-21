@@ -1,6 +1,8 @@
 package cycletls
 
 import (
+	"net"
+
 	http "github.com/Danny-Dasilva/fhttp"
 
 	"time"
@@ -42,7 +44,7 @@ func clientBuilder(browser Browser, dialer proxy.ContextDialer, timeout int, dis
 // # Example Usage
 // import (
 //
-//	"github.com/Danny-Dasilva/CycleTLS/cycletls"
+//	"github.com/Xayah36/CycleTLS/cycletls"
 //	http "github.com/Danny-Dasilva/fhttp" // note this is a drop-in replacement for net/http
 //
 // )
@@ -72,7 +74,7 @@ func NewTransportWithProxy(ja3 string, useragent string, proxy proxy.ContextDial
 }
 
 // newClient creates a new http client
-func newClient(browser Browser, timeout int, disableRedirect bool, UserAgent string, proxyURL ...string) (http.Client, error) {
+func newClient(browser Browser, timeout int, disableRedirect bool, UserAgent string, LocalAddr string, proxyURL ...string) (http.Client, error) {
 	var dialer proxy.ContextDialer
 	if len(proxyURL) > 0 && len(proxyURL[0]) > 0 {
 		var err error
@@ -84,7 +86,12 @@ func newClient(browser Browser, timeout int, disableRedirect bool, UserAgent str
 			}, err
 		}
 	} else {
-		dialer = proxy.Direct
+		dialer = &net.Dialer{
+			LocalAddr: &net.TCPAddr{
+				IP:   net.ParseIP(LocalAddr),
+				Port: 0,
+			},
+		}
 	}
 
 	return clientBuilder(browser, dialer, timeout, disableRedirect), nil
